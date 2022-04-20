@@ -1,46 +1,43 @@
+"""LU base component
+Components added after they have been created and tested"""
 
 
-
-
-
-# function
+# yes/no checking function
 def yes_no(question_text):
     while True:
 
-        # ask the user if they have played before
+        # Ask the user if they have played before
         answer = input(question_text).lower()
 
-        # if they say yes program continues
+        # If they say yes, output 'Program Continues'
         if answer == "yes" or answer == "y":
-            answer = "yes"
+            answer = "Yes"
             return answer
 
-         # if user says no show instructions
+        # If they say no, output 'Display Instructions'
         elif answer == "no" or answer == "n":
             answer = "No"
             return answer
 
-    # othwerwise show error
-    else:
-        print("please answer 'yes's or 'no'")
+        # Otherwise - show error
+        else:
+            print("Please answer 'yes or 'no': ")
 
+
+# function to display instructions
 def instructions():
-
-    print("**** how to play ****")
+    print("**** How to Play ****")
     print()
-    print("the rules of the game")
+    print("The rules of the game will go here")
     print()
-    print("program continues")
-    print()
-# main routine
 
 
- #number checker function
+# number checking function
 def num_check(question, low, high):
-    error =  "that was not a valid input\n" \
-            "please enter a number between {} and {}\n". format(low, high)
+    error = "That was not a valid input\n" \
+            "Please enter a number between {} and {}\n".format(low, high)
 
-    # keep asking until a valid input (1-10)  is entered
+    # Keep asking until a valid amount (1-10) is entered
     while True:
         try:
             # ask for amount
@@ -56,13 +53,13 @@ def num_check(question, low, high):
             print(error)
 
 
-played_before = yes_no("have you played the game before? ")
+# Main routine go here...
+played_before = yes_no("Have you played this game before? ")
 
 if played_before == "No":
     instructions()
 
 
-
-#ask user how much they want to play with
-user_balance = num_check("how much would you like to play with? $", 1, 10)
-print(f"you are playing with {user_balance}")
+# ask the user how much they want to play with
+user_balance = num_check("How much would you like to play with? $", 1, 10)
+print(f"You are playing with ${user_balance}")
